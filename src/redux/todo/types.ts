@@ -1,45 +1,45 @@
 import {
-  FETCH_TODO_REQUEST,
-  FETCH_TODO_SUCCESS,
-  FETCH_TODO_FAILURE,
+  FETCH_POPULAR_MOVIES_REQUEST,
+  FETCH_POPULAR_MOVIES_SUCCESS,
+  FETCH_POPULAR_MOVIES_FAILURE,
 } from "./actionTypes";
 
-export interface ITodo {
+export interface IMovie {
   userId: number;
   id: number;
   title: string;
   completed: boolean;
 }
 
-export interface TodoState {
+export interface MovieState {
   pending: boolean;
-  todos: ITodo[];
+  popularMovies: IMovie[];
   error: string | null;
 }
 
-export interface FetchTodoSuccessPayload {
-  todos: ITodo[];
+export interface FetchPopularMoviesSuccessPayload {
+  popularMovies: IMovie[];
 }
 
-export interface FetchTodoFailurePayload {
+export interface FetchPopularMoviesFailurePayload {
   error: string;
 }
 
-export interface FetchTodoRequest {
-  type: typeof FETCH_TODO_REQUEST;
+export interface FetchPopularMoviesRequest {
+  type: typeof FETCH_POPULAR_MOVIES_REQUEST;
 }
 
-export type FetchTodoSuccess = {
-  type: typeof FETCH_TODO_SUCCESS;
-  payload: FetchTodoSuccessPayload;
+export type FetchPopularMoviesSuccess = {
+  type: typeof FETCH_POPULAR_MOVIES_SUCCESS;
+  payload: FetchPopularMoviesSuccessPayload;
 };
 
-export type FetchTodoFailure = {
-  type: typeof FETCH_TODO_FAILURE;
-  payload: FetchTodoFailurePayload;
+export type FetchPopularMoviesFailure = {
+  type: typeof FETCH_POPULAR_MOVIES_FAILURE;
+  payload: FetchPopularMoviesFailurePayload;
 };
 
-export type TodoActions =
-  | FetchTodoRequest
-  | FetchTodoSuccess
-  | FetchTodoFailure;
+export type MovieActions =
+  | FetchPopularMoviesRequest
+  | FetchPopularMoviesSuccess
+  | FetchPopularMoviesFailure;

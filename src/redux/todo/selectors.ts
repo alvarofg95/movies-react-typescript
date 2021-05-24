@@ -4,11 +4,11 @@ import { AppState } from "../rootReducer";
 
 const getPending = (state: AppState) => state.todo.pending;
 
-const getTodos = (state: AppState) => state.todo.todos;
+const getPopularMovies = (state: AppState) => state.todo.popularMovies;
 
 const getError = (state: AppState) => state.todo.error;
 
-export const getTodosSelector = createSelector(getTodos, (todos) => todos);
+export const getPopularMoviesSelector = createSelector(getPopularMovies, (popularMovies) => popularMovies);
 
 export const getPendingSelector = createSelector(
   getPending,

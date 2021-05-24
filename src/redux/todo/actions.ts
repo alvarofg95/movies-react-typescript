@@ -1,30 +1,30 @@
 import {
-  FETCH_TODO_REQUEST,
-  FETCH_TODO_FAILURE,
-  FETCH_TODO_SUCCESS,
+  FETCH_POPULAR_MOVIES_REQUEST,
+  FETCH_POPULAR_MOVIES_FAILURE,
+  FETCH_POPULAR_MOVIES_SUCCESS,
 } from "./actionTypes";
 import {
-  FetchTodoRequest,
-  FetchTodoSuccess,
-  FetchTodoSuccessPayload,
-  FetchTodoFailure,
-  FetchTodoFailurePayload,
+  FetchPopularMoviesRequest,
+  FetchPopularMoviesSuccess,
+  FetchPopularMoviesSuccessPayload,
+  FetchPopularMoviesFailure,
+  FetchPopularMoviesFailurePayload,
 } from "./types";
 
-export const fetchTodoRequest = (): FetchTodoRequest => ({
-  type: FETCH_TODO_REQUEST,
+export const fetchPopularMoviesRequest = (): FetchPopularMoviesRequest => ({
+  type: FETCH_POPULAR_MOVIES_REQUEST,
 });
 
-export const fetchTodoSuccess = (
-  payload: FetchTodoSuccessPayload
-): FetchTodoSuccess => ({
-  type: FETCH_TODO_SUCCESS,
+export const fetchPopularMoviesSuccess = (
+  payload: FetchPopularMoviesSuccessPayload
+): FetchPopularMoviesSuccess => ({
+  type: FETCH_POPULAR_MOVIES_SUCCESS,
   payload,
 });
 
-export const fetchTodoFailure = (
-  payload: FetchTodoFailurePayload
-): FetchTodoFailure => ({
-  type: FETCH_TODO_FAILURE,
+export const fetchPopularMoviesFailure = (
+  payload: FetchPopularMoviesFailurePayload
+): FetchPopularMoviesFailure => ({
+  type: FETCH_POPULAR_MOVIES_FAILURE,
   payload,
 });

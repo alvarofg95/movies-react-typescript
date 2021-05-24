@@ -3,19 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   getPendingSelector,
-  getTodosSelector,
+  getPopularMoviesSelector,
   getErrorSelector,
 } from "./redux/todo/selectors";
-import { fetchTodoRequest } from "./redux/todo/actions";
+import { fetchPopularMoviesRequest } from "./redux/todo/actions";
 
 const App = () => {
   const dispatch = useDispatch();
   const pending = useSelector(getPendingSelector);
-  const todos = useSelector(getTodosSelector);
+  const popularMovies = useSelector(getPopularMoviesSelector);
   const error = useSelector(getErrorSelector);
 
   useEffect(() => {
-    dispatch(fetchTodoRequest());
+    dispatch(fetchPopularMoviesRequest());
   }, []);
 
   return (
@@ -25,7 +25,7 @@ const App = () => {
       ) : error ? (
         <div>Error</div>
       ) : (
-        todos.map((todo, index) => (
+        popularMovies.map((todo, index) => (
           <div style={{ marginBottom: "10px" }} key={todo.id}>
             {++index}. {todo.title}
           </div>

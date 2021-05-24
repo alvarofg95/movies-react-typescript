@@ -1,27 +1,26 @@
-import axios from "axios";
 import { all, call, put, takeLatest } from "redux-saga/effects";
+import { fetchPopularMoviesFailure, fetchPopularMoviesSuccess } from "./actions";
+import { FETCH_POPULAR_MOVIES_REQUEST } from "./actionTypes";
+import { apiTools, postToAPI } from '../../tools/apiTools';
 
-import { fetchTodoFailure, fetchTodoSuccess } from "./actions";
-import { FETCH_TODO_REQUEST } from "./actionTypes";
-import { ITodo } from "./types";
-
-const getTodos = () =>
-  axios.get<ITodo[]>("https://jsonplaceholder.typicode.com/todos");
-
+const getPopularMovies = () => {
+  return postToAPI(apiTools.getPopularMovies);
+}
 /*
   Worker Saga: Fired on FETCH_TODO_REQUEST action
 */
-function* fetchTodoSaga() {
+function* fetchPopularMoviesSaga() {
   try {
-    const response = yield call(getTodos);
+    const response = yield call(getPopularMovies);
+    console.log({ response });
     yield put(
-      fetchTodoSuccess({
-        todos: response.data,
+      fetchPopularMoviesSuccess({
+        popularMovies: response.data,
       })
     );
   } catch (e) {
     yield put(
-      fetchTodoFailure({
+      fetchPopularMoviesFailure({
         error: e.message,
       })
     );
@@ -32,8 +31,8 @@ function* fetchTodoSaga() {
   Starts worker saga on latest dispatched `FETCH_TODO_REQUEST` action.
   Allows concurrent increments.
 */
-function* todoSaga() {
-  yield all([takeLatest(FETCH_TODO_REQUEST, fetchTodoSaga)]);
+function* popularMoviesSaga() {
+  yield all([takeLatest(FETCH_POPULAR_MOVIES_REQUEST, fetchPopularMoviesSaga)]);
 }
 
-export default todoSaga;
+export default popularMoviesSaga;

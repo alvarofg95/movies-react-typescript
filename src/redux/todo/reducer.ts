@@ -1,32 +1,32 @@
 import {
-  FETCH_TODO_REQUEST,
-  FETCH_TODO_SUCCESS,
-  FETCH_TODO_FAILURE,
+  FETCH_POPULAR_MOVIES_REQUEST,
+  FETCH_POPULAR_MOVIES_SUCCESS,
+  FETCH_POPULAR_MOVIES_FAILURE,
 } from "./actionTypes";
 
-import { TodoActions, TodoState } from "./types";
+import { MovieActions, MovieState } from "./types";
 
-const initialState: TodoState = {
+const initialState: MovieState = {
   pending: false,
-  todos: [],
+  popularMovies: [],
   error: null,
 };
 
-export default (state = initialState, action: TodoActions) => {
+export default (state = initialState, action: MovieActions) => {
   switch (action.type) {
-    case FETCH_TODO_REQUEST:
+    case FETCH_POPULAR_MOVIES_REQUEST:
       return {
         ...state,
         pending: true,
       };
-    case FETCH_TODO_SUCCESS:
+    case FETCH_POPULAR_MOVIES_SUCCESS:
       return {
         ...state,
         pending: false,
-        todos: action.payload.todos,
+        todos: action.payload.popularMovies,
         error: null,
       };
-    case FETCH_TODO_FAILURE:
+    case FETCH_POPULAR_MOVIES_FAILURE:
       return {
         ...state,
         pending: false,
