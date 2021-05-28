@@ -23,14 +23,14 @@ export default (state = initialState, action: MovieActions) => {
       return {
         ...state,
         pending: false,
-        todos: action.payload.popularMovies,
+        popularMovies: action.payload.popularMovies,
         error: null,
       };
     case FETCH_POPULAR_MOVIES_FAILURE:
       return {
         ...state,
         pending: false,
-        todos: [],
+        popularMovies: [],
         error: action.payload.error,
       };
     default:

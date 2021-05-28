@@ -1,18 +1,9 @@
 import axios from 'axios';
-import { IMovie } from 'redux/todo/types';
 
 interface IRequestInfo {
   url: string,
   method: string,
 };
-
-interface ServerResponse {
-  data: ServerData
-}
-
-interface ServerData {
-  url: string
-}
 
 export const apiTools = {
   getPopularMovies: {
@@ -21,7 +12,9 @@ export const apiTools = {
   }
 };
 
-export const postToAPI = (requestProps:IRequestInfo):IMovie[] => {
+export const postToAPI = (requestProps:IRequestInfo) => {
   const requestUrl = `${process.env.REACT_APP_API_URI}${requestProps.url}?api_key=${process.env.REACT_APP_API_KEY}&language=es-ES`;
-  return axios.get<ServerData[]>(requestUrl);
+  console.log(axios.get(requestUrl));
+  return axios.get(requestUrl);
+  // axios.get<ITodo[]>("https://jsonplaceholder.typicode.com/todos");
 }

@@ -15,7 +15,7 @@ function* fetchPopularMoviesSaga() {
     console.log({ response });
     yield put(
       fetchPopularMoviesSuccess({
-        popularMovies: response.data,
+        popularMovies: response.data.results,
       })
     );
   } catch (e) {

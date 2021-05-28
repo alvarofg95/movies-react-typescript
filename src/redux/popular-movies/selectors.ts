@@ -2,11 +2,11 @@ import { createSelector } from "reselect";
 
 import { AppState } from "../rootReducer";
 
-const getPending = (state: AppState) => state.todo.pending;
+const getPending = (state: AppState) => state.popularMovies.pending;
 
-const getPopularMovies = (state: AppState) => state.todo.popularMovies;
+const getPopularMovies = (state: AppState) => state.popularMovies.popularMovies;
 
-const getError = (state: AppState) => state.todo.error;
+const getError = (state: AppState) => state.popularMovies.error;
 
 export const getPopularMoviesSelector = createSelector(getPopularMovies, (popularMovies) => popularMovies);
 

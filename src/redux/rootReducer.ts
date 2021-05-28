@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import todoReducer from "./todo/reducer";
+import popularMoviesReducer from "./popular-movies/reducer";
 
 const rootReducer = combineReducers({
-  todo: todoReducer,
+  popularMovies: popularMoviesReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

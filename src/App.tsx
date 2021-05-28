@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import {
   getPendingSelector,
   getPopularMoviesSelector,
   getErrorSelector,
-} from "./redux/todo/selectors";
-import { fetchPopularMoviesRequest } from "./redux/todo/actions";
+} from "./redux/popular-movies/selectors";
+import { fetchPopularMoviesRequest } from "./redux/popular-movies/actions";
+import { IMovie } from 'redux/popular-movies/types';
 
 const App = () => {
   const dispatch = useDispatch();
   const pending = useSelector(getPendingSelector);
-  const popularMovies = useSelector(getPopularMoviesSelector);
+  const movies = useSelector(getPopularMoviesSelector);
   const error = useSelector(getErrorSelector);
 
   useEffect(() => {
@@ -25,9 +25,9 @@ const App = () => {
       ) : error ? (
         <div>Error</div>
       ) : (
-        popularMovies.map((todo, index) => (
-          <div style={{ marginBottom: "10px" }} key={todo.id}>
-            {++index}. {todo.title}
+        movies.map((movie: IMovie, index: number) => (
+          <div style={{ marginBottom: "10px" }} key={movie.id}>
+            {++index}. {movie.title}
           </div>
         ))
       )}
