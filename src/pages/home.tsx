@@ -6,7 +6,7 @@ import {
   getErrorSelector,
 } from "redux/popular-movies/selectors";
 import { fetchPopularMoviesRequest } from "redux/popular-movies/actions";
-import { IMovie } from 'redux/popular-movies/types';
+import MoviesList from 'components/movies-list';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,17 +19,13 @@ const App = () => {
   }, []);
 
   return (
-    <div style={{ padding: "15px" }}>
+    <div className="container">
       {pending ? (
         <div>Loading...</div>
       ) : error ? (
         <div>Error</div>
       ) : (
-        movies.map((movie: IMovie, index: number) => (
-          <div style={{ marginBottom: "10px" }} key={movie.id}>
-            {++index}. {movie.title}
-          </div>
-        ))
+        <MoviesList movies={movies} />
       )}
     </div>
   );

@@ -8,6 +8,7 @@ export interface IMovie {
   userId: number;
   id: number;
   title: string;
+  poster_path: string;
   completed: boolean;
 }
 
