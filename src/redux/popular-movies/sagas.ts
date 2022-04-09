@@ -6,13 +6,10 @@ import { apiTools, postToAPI } from '../../tools/apiTools';
 const getPopularMovies = () => {
   return postToAPI(apiTools.getPopularMovies);
 }
-/*
-  Worker Saga: Fired on FETCH_TODO_REQUEST action
-*/
+
 function* fetchPopularMoviesSaga() {
   try {
-    const response = yield call(getPopularMovies);
-    console.log({ response });
+    const response: any = yield call(getPopularMovies);
     yield put(
       fetchPopularMoviesSuccess({
         popularMovies: response.data.results,

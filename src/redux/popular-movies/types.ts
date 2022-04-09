@@ -8,8 +8,8 @@ export interface IMovie {
   userId: number;
   id: number;
   title: string;
+  vote_average: string;
   poster_path: string;
-  completed: boolean;
 }
 
 export interface MovieState {

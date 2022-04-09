@@ -16,3 +16,18 @@ code {
   width: 95%;
   margin: 0 auto;
 }
+
+.searchInputDiv {
+  margin-right: 4%;
+}
+
+.searchResults {
+  background: #FFF;
+  position: absolute;
+  width: 310px;
+  margin-top: 6px;
+  border-radius: 5px;
+  border: 1px solid #e3e3e3;
+  opacity: 0.9;
+  z-index: 99;
+}

@@ -7,6 +7,8 @@ import {
 } from "redux/popular-movies/selectors";
 import { fetchPopularMoviesRequest } from "redux/popular-movies/actions";
 import MoviesList from 'components/movies-list';
+import Panel from 'components/panel';
+import Wrapper from 'components/styled-components/wrapper';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchPopularMoviesRequest());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container">
@@ -25,7 +27,10 @@ const App = () => {
       ) : error ? (
         <div>Error</div>
       ) : (
-        <MoviesList movies={movies} />
+        <Wrapper flex>
+          <Panel />
+          <MoviesList movies={movies} />
+        </Wrapper>
       )}
     </div>
   );
